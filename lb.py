@@ -1,12 +1,11 @@
-from html import HTML
+import os
 
 def main():
-    h = HTML()
     title = input("enter title of post: ")
-    h_title = h.h1(title)
-    print("title is: " + title)
-    print("Marked up title is: " + h_title)
-
+    h_title = "<h1>{}</h1>\n".format(title)
+    header = open(os.path.join("templates/", "header.html"), "r").read()
+    footer = open(os.path.join("templates/", "footer.html"), "r").read()
+    print(header + h_title + footer)
 
 if __name__ == "__main__":
     main()
